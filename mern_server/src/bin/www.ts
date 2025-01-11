@@ -7,6 +7,7 @@ import app from '../app';
 import debug from 'debug';
 
 import http from 'http';
+import mongoose from 'mongoose';
 
 /**
  * Get port from environment and store in Express.
@@ -14,6 +15,11 @@ import http from 'http';
 
 const port = normalizePort('3001');
 app.set('port', port);
+
+mongoose.connect(
+  `mongodb://mern:merntest@localhost:27017/mern?authSource=admin`
+).then(() => console.log('Connected to mongo server'))
+  .catch((e) => console.log(e))
 
 /**
  * Create HTTP server.
