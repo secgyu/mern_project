@@ -56,7 +56,7 @@ function InfoWindowMaker(selectInfo: Info, onSubmit?: () => void) {
   if (onSubmit) {
     const infoWindowButton = document.createElement("div");
     infoWindowButton.className = "infoSubmit";
-    infoWindowPlace.innerHTML = "등록";
+    infoWindowButton.innerHTML = "등록";
     infoWindowButton.onclick = onSubmit;
     infoWindowBox.appendChild(infoWindowButton);
   }

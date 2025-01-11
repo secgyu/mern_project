@@ -1,4 +1,4 @@
-import { useAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import Block from "./common/Block";
 import Button from "./common/Button";
 import Divider from "./common/Divider";
@@ -11,6 +11,8 @@ import { useCallback } from "react";
 import { BiSearch } from "react-icons/bi";
 import Input from "./common/Input";
 import useInput from "../hooks/useInput";
+import { infosAtom } from "../atoms/info";
+import { infos } from "../data/infos";
 
 interface NavigationProps {
   type?: "home" | "upload";
@@ -19,14 +21,15 @@ interface NavigationProps {
 function Navigation({ type = "home" }: NavigationProps) {
   const [select, setSelect] = useAtom(selectAtom);
   const { value, onChange } = useInput("");
+  const setInfos = useSetAtom(infosAtom);
 
   const onChangeSelect = useCallback(() => {
     setSelect(!select);
   }, [select, setSelect]);
 
   const onSubmit = useCallback(() => {
-    console.log(value);
-  }, [value]);
+    setInfos(infos);
+  }, []);
 
   return (
     <ShadowBox>
