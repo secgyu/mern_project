@@ -3,6 +3,7 @@ import { mapAtom } from "../atoms/map";
 import { infosAtom, selectInfoAtom } from "../atoms/info";
 import { Info } from "../types/info";
 import Maker from "./common/Maker";
+import InfoWindow from "./common/InfoWindow";
 
 function MakersContainer() {
   const map = useAtomValue(mapAtom);
@@ -28,12 +29,13 @@ function MakersContainer() {
           key={selectInfo.id}
           map={map}
           position={selectInfo.position}
-          content={'<div class="marker select" />'}
+          content={'<div class="marker select"/>'}
           onClick={() => {
             setSelectInfo(null);
           }}
         />
       )}
+      <InfoWindow map={map} selectInfo={selectInfo} />
     </>
   );
 }
