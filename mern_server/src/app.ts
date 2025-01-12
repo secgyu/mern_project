@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRouter from './routes/index';
 import ErrorHandler from './middlewares/errorHandler';
+import 'dotenv/config';
 
 const app = express();
 
